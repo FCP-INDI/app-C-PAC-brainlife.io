@@ -1,15 +1,15 @@
 [![Abcdspec-compliant](https://img.shields.io/badge/ABCD_Spec-v1.1-green.svg)](https://github.com/brain-life/abcd-spec)
-[![brainlife<span>.io</span>/app](https://img.shields.io/badge/brainlife.io-app-green.svg)](https://brainlife<span>.io</span>/app/5f3593e84615e04651bf9364)
+[![brainlife<span>.io</span>/app](https://img.shields.io/badge/brainlife.io-app-green.svg)](https://brainlife.io/app/5f3593e84615e04651bf9364)
 [![DOI:10.25663/brainlife.app.399](https://img.shields.io/badge/DOI-10.25663%2Fbrainlife.app.399-blue)](https://doi.org/10.25663/brainlife.app.399)
 
 # app-C-PAC-brainlife<span>.io</span>
-This is an app to run [**C-PAC: Configurable Pipeline for the Analysis of Connectomes**](https://fcp-indi.github.io/docs/latest/user) [via brainlife<span>.io</span>]((https://brainlife<span>.io</span>/app/5f3593e84615e04651bf9364)).
+This is an app to run [**C-PAC: Configurable Pipeline for the Analysis of Connectomes**](https://fcp-indi.github.io/docs/latest/user) [via brainlife<span>.io</span>]((https://brainlife.io/app/5f3593e84615e04651bf9364)).
 
 This app:
 1. gets the latest C-PAC Singularity image
-2. converts given [anat/t1w](https://brainlife<span>.io</span>/datatype/58c33bcee13a50849b25879a) and [func/task](https://brainlife<span>.io</span>/datatype/59b685a08e5d38b0b331ddc5) ([brainlife<span>.io</span> datatypes](https://brainlife<span>.io</span>/docs/user/datatypes)) to [BIDS](https://bids-specification.readthedocs.io/en/stable/) (the data structure required by C-PAC)
+2. converts given [anat/t1w](https://brainlife.io/datatype/58c33bcee13a50849b25879a) and [func/task](https://brainlife.io/datatype/59b685a08e5d38b0b331ddc5) ([brainlife<span>.io</span> datatypes](https://brainlife.io/docs/user/datatypes)) to [BIDS](https://bids-specification.readthedocs.io/en/stable/) (the data structure required by C-PAC)
 3. runs C-PAC, persisting the working directory
-     * with a [preconfigured pipeline](https://fcp-indi.github.io/docs/latest/user/preconfig) given the optional `preconfig` [configuration parameter](https://brainlife<span>.io</span>/docs/apps/register/#configuration-parameters)
+     * with a [preconfigured pipeline](https://fcp-indi.github.io/docs/latest/user/preconfig) given the optional `preconfig` [configuration parameter](https://brainlife.io/docs/apps/register/#configuration-parameters)
      * with the [default pipeline](https://fcp-indi.github.io/docs/latest/user/preconfig#default-the-default-pipeline) otherwise
 
 ### Authors
@@ -212,13 +212,13 @@ Currently this app only runs [the latest version](https://fcp-indi.github.io/doc
 
 ### Bug reports and feature requests
 
-If you run into an issue, please check [existing bug reports](https://github.com/FCP-INDI/app-C-PAC-brainlife<span>.io</span>/issues?q=is%3Aissue+is%3Aopen+label%3Abug).
+If you run into an issue, please check [existing bug reports](https://github.com/FCP-INDI/app-C-PAC-brainlife.io/issues?q=is%3Aissue+is%3Aopen+label%3Abug).
 
 If a bug report already exists for your issue, please add a :+1: and/or add any new information you have that might help us resolve the issue.
 
-If a bug report does not exist yet, please [open one using our bug report template](https://github.com/FCP-INDI/app-C-PAC-brainlife<span>.io</span>/issues/new?assignees=&labels=bug%2C+user-reported&template=bug_report.md&title=%F0%9F%90%9B+%5BUser-reported+Bug%5D), filling out as much detail as you can.
+If a bug report does not exist yet, please [open one using our bug report template](https://github.com/FCP-INDI/app-C-PAC-brainlife.io/issues/new?assignees=&labels=bug%2C+user-reported&template=bug_report.md&title=%F0%9F%90%9B+%5BUser-reported+Bug%5D), filling out as much detail as you can.
 
-If you want to request a feature, we also have [a template to create a feature request](https://github.com/FCP-INDI/app-C-PAC-brainlife<span>.io</span>/issues/new?assignees=&labels=enhancement%2C+user-reported&template=feature_request.md&title=%E2%9C%A8+%5BUser-requested+Feature%5D).
+If you want to request a feature, we also have [a template to create a feature request](https://github.com/FCP-INDI/app-C-PAC-brainlife.io/issues/new?assignees=&labels=enhancement%2C+user-reported&template=feature_request.md&title=%E2%9C%A8+%5BUser-requested+Feature%5D).
 
 #### brainlife<span>.io</span>:  [MIT Copyright © 2020 brainlife<span>.io</span> The University of Texas at Austin and Indiana University](./LICENSE)
 #### C-PAC: [BSD 3-Clause "New" or "Revised" License © 2016–2020 Child Mind Institute, Inc. and C-PAC developers](https://github.com/FCP-INDI/C-PAC/blob/master/LICENSE)
