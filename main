@@ -18,7 +18,7 @@ if [ -f cpac-singularity-image.simg ]
     echo "using existing C-PAC Singularity image"
   else
     echo "getting C-PAC Singularity image"
-    time singularity pull cpac-singularity-image.simg shub://FCP-INDI/C-PAC || singularity pull cpac-singularity-image.simg docker://fcpindi/c-pac:latest
+    time singularity pull cpac-singularity-image.simg docker://fcpindi/c-pac:nightly
 fi
 
 # convert brainlife structure to BIDS
