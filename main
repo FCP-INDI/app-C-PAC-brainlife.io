@@ -4,28 +4,35 @@
 #PBS -N cpac
 
 # parse config.json for input parameters
-preconfig=$(jq -r .preconfig config.json)
-if [ "$preconfig" == "" ] || [ "$preconfig" == "null" ] || [ "$preconfig" == "default" ]
-    then
-        preconfig=""
-    else
-        preconfig="--preconfig $preconfig"
+PRECONFIG=$(jq -r .preconfig config.json)
+if [ "$PRECONFIG" == "" ] || [ "$PRECONFIG" == "null" ] || [ "$PRECONFIG" == "default" ]
+then
+  PRECONFIG=""
+else
+  PRECONFIG="--preconfig $PRECONFIG"
+fi
+SAVE_WORKING_DIR=$(jq -r .saveWorkingDir config.json)
+if [[ ${SAVE_WORKING_DIR} == 'true' ]]
+then
+  SAVE_WORKING_DIR=' --save_working_dir'
+else
+  SAVE_WORKING_DIR=''
 fi
 
 # get latest image if we don't already have one
 if [ -f cpac-singularity-image.simg ]
-  then
-    echo "using existing C-PAC Singularity image"
-  else
-    echo "getting C-PAC Singularity image"
-    time singularity pull cpac-singularity-image.simg shub://FCP-INDI/C-PAC || singularity pull cpac-singularity-image.simg docker://fcpindi/c-pac:latest
+then
+  echo "using existing C-PAC Singularity image"
+else
+  echo "getting C-PAC Singularity image"
+  time singularity pull cpac-singularity-image.simg shub://FCP-INDI/C-PAC || singularity pull cpac-singularity-image.simg docker://fcpindi/c-pac:latest
 fi
 
 # convert brainlife structure to BIDS
 if [ ! -d bids ]
-  then
-    echo "restructuring data"
-    bl2bids
+then
+  echo "restructuring data"
+  bl2bids
 fi
 
 set -x
@@ -35,4 +42,4 @@ set -e
 echo "running C-PAC"
 mkdir -p output tmp
 
-time singularity run -e -B $PWD/bids:/bids -B $PWD/output:/output -B $PWD/tmp:/tmp cpac-singularity-image.simg /bids /output participant $preconfig --save_working_dir
+time singularity run -e -B $PWD/bids:/bids -B $PWD/output:/output -B $PWD/tmp:/tmp cpac-singularity-image.simg /bids /output participant ${PRECONFIG}${SAVE_WORKING_DIR}
