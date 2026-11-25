@@ -3,6 +3,46 @@
 [![DOI:10.25663/brainlife.app.399](https://img.shields.io/badge/DOI-10.25663%2Fbrainlife.app.399-blue)](https://doi.org/10.25663/brainlife.app.399)
 
 # app-C-PAC-brainlife<span>.io</span>
+
+<!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
+
+> **Runs the C-PAC (Configurable Pipeline for the Analysis of Connectomes) BIDS App on a T1w image and task fMRI, with the default or a preconfigured pipeline, and outputs the C-PAC derivatives.**
+
+Pulls the latest C-PAC Singularity image, converts the brainlife inputs to BIDS with bl2bids and runs C-PAC at participant level. Choose a preconfigured pipeline with preconfig, otherwise the default pipeline runs. Use it for fMRI preprocessing and connectome derivatives; expect long run times (up to 48 h).
+
+| | |
+|---|---|
+| 📥 **Inputs** | `neuro/anat/t1w` · `neuro/func/task` |
+| 📤 **Outputs** | `raw` |
+| 🐳 **Container** | `fcpindi/c-pac:latest` |
+| ⚙️ **Resources** | 8 CPUs · 48 h walltime |
+| 🔗 **Run it** | [doi.org/10.25663/brainlife.app.399](https://doi.org/10.25663/brainlife.app.399) |
+
+#### 📥 Inputs
+
+| Input | Datatype | Required | Description |
+|---|---|---|---|
+| `t1` | `neuro/anat/t1w` | yes | T1-weighted anatomical image. |
+| `func` | `neuro/func/task` | yes | Functional (task or rest) BOLD fMRI. |
+
+#### 📤 Outputs
+
+| Output | Datatype | Description |
+|---|---|---|
+| `output` | `raw` | C-PAC output directory (derivatives and logs; working directory if saveWorkingDir is set). |
+
+<details>
+<summary><b>⚙️ Parameters</b> (2)</summary>
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `preconfig` | string |  | For a list of and descriptions of available preconfigured pipelines, see https://fcp-indi.github.io/docs/latest/user/preconfig |
+| `saveWorkingDir` | boolean | `false` | Save the Nipype working directory (which can be quite large). By default only outputs are retained. |
+
+</details>
+
+<!-- brainlife-app:end -->
+
 This is an app to run [**C-PAC: Configurable Pipeline for the Analysis of Connectomes**](https://fcp-indi.github.io/docs/latest/user) [via brainlife<span>.io</span>]((https://brainlife.io/app/5f3593e84615e04651bf9364)).
 
 This app:
